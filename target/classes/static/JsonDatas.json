@@ -1,0 +1,16 @@
+{
+  "user":"trazen",
+  "report": "orders-history",
+  "format": 1,
+  "data": {
+    		"title": "Reporte del 10 al 29 de Oct.",
+    		"orders": [
+              {
+                "cliente": "Joe Madden", "direccion": "Calle Campeche #131 col. Centro Urbanización 4", "numeroDeOrdenes": 1, "importe": 4560.50 
+              },
+              {
+                "cliente": "Joe Madden2", "direccion": "Calle Campeche #132 col. Centro Urbanización 5", "numeroDeOrdenes": 2, "importe": 2562.50 
+              }
+            ]
+  }
+}

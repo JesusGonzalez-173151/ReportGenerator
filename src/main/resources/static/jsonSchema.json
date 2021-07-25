@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "user": {
+            "type": "string"
+        },
+        "report": {
+            "type": "string"
+        },
+        "format": {
+            "type": "string"
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "orders": {
+                    "type": "array",
+                    "items": 
+                            {
+                                "type": "object"
+                            },
+                    "minItems": 1      
+                }
+            },
+            "required": [
+                "title",
+                "orders"
+            ]
+        }
+    },
+    "required": [
+        "user",
+        "report",
+        "format",
+        "data"
+    ]
+}
+
+
+
