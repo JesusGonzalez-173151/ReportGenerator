@@ -19,14 +19,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ReportGeneratorApplication {
 
     public static void main(String[] args) {
-       // SpringApplication.run(ReportGeneratorApplication.class, args);
-        try {
-            givenInvalidInput_whenValidating_thenInvalid();
-            System.out.println("pasó");
-        } catch (Exception e) {
-            System.out.println("no pasó");
-        }
-        
+        SpringApplication.run(ReportGeneratorApplication.class, args);
+//        try {
+//            givenInvalidInput_whenValidating_thenInvalid();
+//            System.out.println("pasó");
+//        } catch (Exception e) {
+//            System.out.println("no pasó");
+//        }
+//        
     }
 //    private static InputStream inputStreamFromClasspath(String path) {
 //        return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
