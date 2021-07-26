@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-//import org.json.*;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -43,12 +43,11 @@ public class Controlador {
             consumes = "application/json")
     public ResponseEntity<String> reporteGenerado(@RequestBody Object json) throws Exception {
 
-        String ob = json.toString();
+        String ob = "sad";
 
-        //JSONObject copy = new JSONObject(ob);
-
+        S
         try {
-//            JSONObject copy = new JSONObject(ob);
+     //            JSONObject copy = new JSONObject(ob);
 //            file = new FileWriter("/Users/Shared/crunchify.txt");
 //            file.write(copy.toJSONString());
 //            System.out.println("Successfully Copied JSON Object to File...");
