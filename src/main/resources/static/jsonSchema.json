@@ -9,7 +9,8 @@
             "type": "string"
         },
         "format": {
-            "type": "string"
+            "type": "string",
+            "enum": ["pdf", "xls"]
         },
         "data": {
             "type": "object",
