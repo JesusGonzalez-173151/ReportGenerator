@@ -11,7 +11,7 @@
         },
         "format": {
             "type": "string",
-            "enum": ["pdf", "xls","xlsx","cvs"]
+            "enum": ["pdf", "xls","xlsx","csv"]
         },
         "data": {
             "type": "object",

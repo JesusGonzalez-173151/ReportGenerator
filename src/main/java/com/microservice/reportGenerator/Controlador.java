@@ -1,5 +1,6 @@
 package com.microservice.reportGenerator;
 
+import com.microservice.reportGenerator.validation.SchemaValidator;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,9 @@ public class Controlador {
 
     /**
      * Este metodo post consume el json con los datos a generar en un reporte,
-     * lo recibe en forma de object, y los datos toString() los mete a una
-     * variable string y lo devuelve al navegador. Intento despues meter ese
-     * string en documento txt el cual hare .json y dejarlo como archivo local
-     * para trabajar con el....ahi me quede
+     * lo recibe en forma de String con el formato escrito de JSON, Despues se
+     * crea un JSONObject con ese String para despues compararse con otro
+     * JSONObject que contiene el schema de validacion para el json recibido
      *
      * @param json
      * @return
@@ -39,21 +39,16 @@ public class Controlador {
     @RequestMapping(
             method = RequestMethod.POST,
             path = "/reporteGenerado",
-            consumes = "application/json")
+            consumes = {MediaType.APPLICATION_JSON_VALUE})//consume = application/json.......sin llaves
     public ResponseEntity<String> reporteGenerado(@RequestBody String json) throws Exception {
-        try {
-            InputStream inputstream = new FileInputStream("../ReportGenerator/src/main/resources/static/jsonSchema.json");
-            JSONObject jsonSchema = new JSONObject(new JSONTokener(inputstream));
-            JSONObject jsonSubject = new JSONObject(json);
-
-            Schema schema = SchemaLoader.load(jsonSchema);
-            schema.validate(jsonSubject);
-
-            return new ResponseEntity<>(json + " jala", HttpStatus.OK);
-        } catch (Exception e) {
-
+        SchemaValidator sv = new SchemaValidator();
+        String str = " ";
+        if (sv.validarJson(json)) {
+            str = "pasado";
+        } else {
+            str = "no pasado";
         }
-        return new ResponseEntity<>("no jala", HttpStatus.OK);
+        return new ResponseEntity<>(str, HttpStatus.OK);
     }
 
 //    @GetMapping("/generate_pdf")//devuelve solo texto 
