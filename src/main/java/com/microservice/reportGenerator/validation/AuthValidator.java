@@ -16,21 +16,34 @@ import org.json.JSONTokener;
  *
  * @author Administrator
  */
-public class SchemaValidator {
+public class AuthValidator {
 
-    public boolean validarJson(String JsonPOST) {
-       boolean validado = false;
+    public boolean autenticacion(JSONObject jsonPOST) {
+        boolean validado = false;
+        try {
+            //lo mismo pero seccionado para mayor entendimiento
+            if (jsonPOST.getString("user").equalsIgnoreCase("trazen")) {
+                System.out.println("es trazen pasa");
+                validado = true;
+            }
+        } catch (Exception e) {
+            System.out.println("No autenticado, error en json" + e);
+        }
+        return validado;
+    }
+
+    public boolean validarJson(JSONObject jsonPOST) {
+        boolean validado = false;
         try {
             InputStream inputstream = new FileInputStream("../ReportGenerator/src/main/resources/static/jsonSchema.json");
             JSONObject jsonSchema = new JSONObject(new JSONTokener(inputstream));
-            JSONObject jsonSubject = new JSONObject(JsonPOST);
 
             Schema schema = SchemaLoader.load(jsonSchema);
-            schema.validate(jsonSubject);
+            schema.validate(jsonPOST);
 
             validado = true;
         } catch (Exception e) {
-               System.out.println("No validado, error en json" + e);
+            System.out.println("No validado, error en json" + e);
         }
         return validado;
     }

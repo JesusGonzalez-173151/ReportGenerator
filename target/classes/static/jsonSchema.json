@@ -11,7 +11,7 @@
         },
         "format": {
             "type": "string",
-            "enum": ["pdf", "xls","xlsx","csv"]
+            "enum": ["pdf", "xls", "xlsx"]
         },
         "data": {
             "type": "object",
@@ -34,10 +34,5 @@
             ]
         }
     },
-    "required": [
-        "user",
-        "report",
-        "format",
-        "data"
-    ]
+    "required": ["user", "report", "format", "data"]
 }
