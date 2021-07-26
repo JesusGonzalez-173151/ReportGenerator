@@ -3,14 +3,15 @@
     "type": "object",
     "properties": {
         "user": {
-            "type": "string"
+            "type": "string",
+            "enum": ["trazen", "sigma"]
         },
         "report": {
             "type": "string"
         },
         "format": {
             "type": "string",
-            "enum": ["pdf", "xls"]
+            "enum": ["pdf", "xls","xlsx","cvs"]
         },
         "data": {
             "type": "object",
