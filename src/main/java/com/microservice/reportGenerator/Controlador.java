@@ -1,8 +1,6 @@
 package com.microservice.reportGenerator;
 
 import com.microservice.reportGenerator.validation.AuthValidator;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,11 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.everit.json.schema.Schema;
-import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 /**
  *
@@ -65,7 +60,7 @@ public class Controlador {
                 if (sv.validarJson(jsone)) {
                     str = "Paso 2 validar";
                     System.out.println("Validación de esquema aprobada");
-                }else{
+                } else {
                     str = "Paso 2 invalido";
                     System.out.println("Validación de esquema invalida");
                 }
